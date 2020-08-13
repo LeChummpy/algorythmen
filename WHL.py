@@ -14,9 +14,6 @@ def loeffelsprache(text):
     return RESULT.join(result)
 
 
-
-
-
 def tagebisferien(current_day, current_month):
     result = 0
 
@@ -50,7 +47,7 @@ def tagebisferien(current_day, current_month):
                 iterate_month+=1
                 iterate_day = 1
 
-            if (iterate_day==feriebeginn_tag and iterate_month==ferienbeginn_monat):
+            if (iterate_day==ferienbeginn_tag and iterate_month==ferienbeginn_monat):
                 return result
             
         
