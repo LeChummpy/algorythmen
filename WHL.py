@@ -130,6 +130,11 @@ def tagebisferien(current_day, current_month, current_year):
 
 def Errechnen_von_allgemeiner_Note(Noten_Kl:[], Noten_At:[])-> int:
 
+    '''
+    Vor.: -Noten_Kl- und -Noten_At- sind Listen ausschließlich mit Elementen des Typs integer.
+    Erg.: Die allgemeine Note in einem Fach ist in Form des Typs integer geliefert.
+    '''
+
     def errechneNote_KlTeil(Noten:[]): #Mit Wichtung
         summe = 0
 
