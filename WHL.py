@@ -126,7 +126,30 @@ def tagebisferien(current_day, current_month, current_year):
 
             if (iterate_day==ferienbeginn_tag and iterate_month==ferienbeginn_monat and iterate_year==ferienbeginn_jahr):
                 return result
-            
+
+
+def Errechnen_von_allgemeiner_Note(Noten_Kl:[], Noten_At:[])-> int:
+
+    def errechneNote_KlTeil(Noten:[]): #Mit Wichtung
+        summe = 0
+
+        for i in Noten:
+            summe += i
+
+        result = summe/len(Noten)
+        return int(round(result, 0))
+
+    def errechneNote_AtTeil(Noten:[]): #Mit Wichtung
+        summe = 0
+
+        for i in Noten:
+            summe += i
+
+        result = summe/len(Noten)
+        return int(round(result, 0))*2
+
+    result = ( ( errechneNote_KlTeil(Noten_Kl) + errechneNote_AtTeil(Noten_At) ) / 3 )
+    return int(result)
         
         
         
