@@ -1,0 +1,45 @@
+import random as rd
+import math
+
+def bubblesort(liste):
+    for h in range(len(liste)): #Wiederhole so oft, wie liste lang ist
+        for i in range(len(liste)-1): #gehe liste von Anfang an durch
+            wert = liste[i]
+            nächster_wert = liste[i+1]
+            if (nächster_wert<wert): #Wenn nächster Wert kleiner als aktueller, tausche Werte
+                liste[i]=nächster_wert
+                liste[i+1]=wert
+
+    return liste
+
+def Abstand(a, b):
+    return float(abs(a-b))
+
+def min4(u, x, y, z):
+    liste=[u,x,y,z]
+    return float(min(liste))
+
+def Nullstelle(p, q):
+    #Liefert entsprechende Nullstelle, bei keiner Nullstelle None
+    
+    try:
+        x1 = -(p/2) - math.sqrt((p/2)**2 - q)
+        x2 = -(p/2) + math.sqrt((p/2)**2 - q)
+        
+    except (ValueError):
+        return None
+
+    return x1, x2
+
+def Extremstelle(a, b, c):
+    #liefert näherungsweise Extremstelle von quadratischer Gleichung
+    
+    schrittweite = 0.001
+    x = rd.randint(0,1)
+    while True:
+        g_term = schrittweite * (2*a*x + b)
+        x -= g_term
+        if (g_term<=5.551115123125783e-17):
+            return x
+    
+
