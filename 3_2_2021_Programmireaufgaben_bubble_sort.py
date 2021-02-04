@@ -1,4 +1,5 @@
 import math
+import random as rd
 
 def bubblesort(liste):
     for h in range(len(liste)): #Wiederhole so oft, wie liste lang ist
@@ -49,23 +50,27 @@ def Extremstelle(a, b, c):
 #-----------------------------------------------------------------------------------------------------------
 
 def Nullstelle_v2(a, b, c):
-    def get_Extremstelle(a, b, c):
-
-        if (a==0 and b==0):
-            return "unendlich"
-
-        elif (a==0 and not(b==0)):
-            return None
-        
-        else:
-            x = (-b)/(2*a)
-            return x
-
+    #Liefert entsprechende Nullstelle, bei keiner Nullstelle None
     
+    p = b/a
+    q = c/a
+    
+    try:
+        x1 = -(p/2) - math.sqrt((p/2)**2 - q)
+        x2 = -(p/2) + math.sqrt((p/2)**2 - q)
+
+        if x1==x2:
+            return x2
+    
+        else:
+            return x1, x2
         
+    except (ValueError):
+        return None
 
 def Extremstelle_v2(a, b, c):
     #liefert näherungsweise Extremstelle von quadratischer Gleichung
+    #Extremstelle mit Gradientenverfahren
 
     if (a==0 and b==0):
         return "unendlich"
@@ -78,9 +83,12 @@ def Extremstelle_v2(a, b, c):
         x = 1
         while True:
             g_term = schrittweite * (2*a*x + b)
-            x -= g_term
-            if (g_term<=5.551115123125783e-17):
-                return x
+            if (a>0):
+                x -= g_term
+            elif (a<0):
+                x += g_term
+                
+            if (g_term<=1e-15):
+                return round(x, 10)
 
-    
 
