@@ -88,7 +88,7 @@ def Extremstelle_v2(a, b, c):
             elif (a<0):
                 x += g_term
                 
-            if (g_term<=1e-15):
+            if (abs(g_term)<=1e-15):
                 return round(x, 10)
 
 
