@@ -96,10 +96,3 @@ def Nullstellen(a, b, c):
 
         except (ValueError):
             return (None, None)
-
-
-#-----------------
-def main():
-    print(Nullstellen(0.3, 0, 0))
-
-main()
