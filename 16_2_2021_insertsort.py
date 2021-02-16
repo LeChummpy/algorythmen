@@ -89,10 +89,10 @@ def Nullstellen(a, b, c):
             x2 = -(p/2) + math.sqrt((p/2)**2 - q)
 
             if x1==x2:
-                return (float(x2), None)
+                return [float(x2)]
 
             else:
-                return (float(x1), float(x2))
+                return [float(x1), float(x2)]
 
         except (ValueError):
-            return (None, None)
+            return None
