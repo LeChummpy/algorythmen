@@ -33,36 +33,46 @@ def Nullstellen(a, b, c, d):
             p = b/a
             q = c/a
 
+            Nullstellen=[]
+
             try:
                 x1 = -(p/2) - math.sqrt((p/2)**2 - q)
-                x2 = -(p/2) + math.sqrt((p/2)**2 - q)
+                Nullstellen.append(x1)
+            except (ValueError):
+                Nullstellen.append(None)
 
-                if x1==x2:
-                    return [float(x2)]
+            try:
+                x2 = -(p/2) + math.sqrt((p/2)**2 - q)
+                Nullstellen.append(x1)
+            except (ValueError):
+                Nullstellen.append(None)
+
+                if Nullstellen[0]==Nullstellen[1]:
+                    return Nullstellen[0]
 
                 else:
-                    return [float(x1), float(x2)]
+                    return Nullstellen
 
             except (ValueError):
                 return None
 
     def MaximaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 0.0005/b
+        schrittweite = 0.0002/b
         x = startwert
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
             x += g_term
-            if (abs(g_term)<=1e-8):
-                return round(x, 10)
+            if (abs(g_term)<=1e-12):
+                return round(x, 15)
 
     def MinimaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 0.0005/b
+        schrittweite = 0.0002/b
         x = startwert
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
             x -= g_term
-            if (abs(g_term)<=1e-8):
-                return round(x, 10)
+            if (abs(g_term)<=1e-12):
+                return round(x, 15)
 
     def finde1Nullstelle(a, b, c, d):
         if (a>0):
@@ -81,11 +91,13 @@ def Nullstellen(a, b, c, d):
         a = a*x1+b
         b = (a*x1+b)*x1+c
         c = ((a*x1+b)*x1+c)*x1+d
+
+        print(x1)
+
+        print(a)
+        print(b)
+        print(c)
         weitere_Nullstellen = loeseQuadratischeGleichung(a, b, c)
+        print(weitere_Nullstellen)
 
-        if (weitere_Nullstellen is None):
-            return [x1]
-        else:
-            return [x1] + weitere_Nullstellen
-
-print(Nullstellen(1, 1, 1, 1))
+print(Nullstellen(1, -3.7, 1, 1))
