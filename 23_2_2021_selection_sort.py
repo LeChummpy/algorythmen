@@ -82,7 +82,10 @@ def Nullstellen(a, b, c, d):
         b = (a*x1+b)*x1+c
         c = ((a*x1+b)*x1+c)*x1+d
         weitere_Nullstellen = loeseQuadratischeGleichung(a, b, c)
-        weitere_Nullstellen.append(x1)
-        return  weitere_Nullstellen
 
-print(Nullstellen(0, 112, -12, -12))
+        if (weitere_Nullstellen is None):
+            return [x1]
+        else:
+            return [x1] + weitere_Nullstellen
+
+print(Nullstellen(1, 1, 1, 1))
