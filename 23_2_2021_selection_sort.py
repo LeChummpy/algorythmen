@@ -59,7 +59,7 @@ def Nullstellen(a, b, c, d):
 
 
     def MaximaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 0.0002/b
+        schrittweite = 0.00001/(b+c+d)
         x = startwert
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
@@ -68,7 +68,7 @@ def Nullstellen(a, b, c, d):
                 return round(x, 15)
 
     def MinimaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 0.0002/b
+        schrittweite = 0.00001/(b+c+d)
         x = startwert
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
@@ -90,12 +90,12 @@ def Nullstellen(a, b, c, d):
     else:
         x1 = finde1Nullstelle(a, b, c, d) #eine Nullstelle mit Gradientenverfahren näherungsweise berechnen, nun mit Hornaverfahern weitere Nullstellen berechnen
 
-        a_ = a*x1+b
-        b_ = (a*x1+b)*x1+c
-        c_ = ((a*x1+b)*x1+c)*x1+d
+        _a = a*x1+b
+        _b = (a*x1+b)*x1+c
+        _c = ((a*x1+b)*x1+c)*x1+d
 
-        x2 = holersteNullstelle(a_, b_, c_)
-        x3 = holzweiteNullstelle(a_, b_, c_)
+        x2 = holersteNullstelle(_a, _b, _c)
+        x3 = holzweiteNullstelle(_a, _b, _c)
         return [x1, x2, x3]
 
-print(Nullstellen(1, -3.7, 1, 1))
+#sorry deutlich ausbaufähig die letzte
