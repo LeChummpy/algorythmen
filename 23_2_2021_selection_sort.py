@@ -59,22 +59,20 @@ def Nullstellen(a, b, c, d):
 
 
     def MaximaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 1/(b+c+d)
+        schrittweite = 0.001/(b+c+d)
         x = startwert
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
             x += g_term
-            print(x)
             if (abs(g_term)<=1e-12):
                 return round(x, 15)
 
     def MinimaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 1/(b+c+d)
+        schrittweite = 0.001/(b+c+d)
         x = startwert
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
             x -= g_term
-            print(x)
             if (abs(g_term)<=1e-12):
                 return round(x, 15)
 
