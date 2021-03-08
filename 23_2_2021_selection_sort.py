@@ -21,7 +21,7 @@ def selectionsort(liste):
 
 def Nullstellen(a, b, c, d):
 
-    def holersteNullstelle(a, b, c):
+    def holzweiteNullstelle(a, b, c):
         if (a==0):
             if (b==0 and c!=0):
                 return None
@@ -39,7 +39,7 @@ def Nullstellen(a, b, c, d):
             except (ValueError):
                 return None
 
-    def holzweiteNullstelle(a, b, c):
+    def holdritteNullstelle(a, b, c):
         if (a==0):
             if (b==0 and c!=0):
                 return None
@@ -59,8 +59,8 @@ def Nullstellen(a, b, c, d):
 
 
     def MaximaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 0.001/(b+c+d)
         x = startwert
+        schrittweite = 0.001
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
             x += g_term
@@ -68,8 +68,8 @@ def Nullstellen(a, b, c, d):
                 return round(x, 15)
 
     def MinimaStammfunktion(a, b, c, d, startwert):
-        schrittweite = 0.001/(b+c+d)
         x = startwert
+        schrittweite = 0.001
         while True:
             g_term = schrittweite * (a*(x**3) + b*(x**2) + c*x + d)
             x -= g_term
@@ -95,8 +95,8 @@ def Nullstellen(a, b, c, d):
         _c = (a*x1+b)*x1+c
         _d = ((a*x1+b)*x1+c)*x1+d #zum gegenchecken ob null oder nähreungsweise 0
 
-        x2 = holersteNullstelle(_a, _b, _c)
-        x3 = holzweiteNullstelle(_a, _b, _c)
+        x2 = holzweiteNullstelle(_a, _b, _c)
+        x3 = holdritteNullstelle(_a, _b, _c)
         return [x1, x2, x3]
 
 #sorry deutlich ausbaufähig die letzte
