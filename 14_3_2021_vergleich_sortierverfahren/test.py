@@ -5,6 +5,7 @@ import sortierverfahren
 def testen(liste):
     Timer = tm.timer()
 
+    '''
     Timer.start()
     sortierverfahren.bubblesort(liste)
     time = Timer.stop()
@@ -14,20 +15,22 @@ def testen(liste):
     sortierverfahren.insertsort(liste)
     time = Timer.stop()
     print("Insertsort: " + str(time))
+    '''
 
     Timer.start()
     sortierverfahren.selectsort(liste)
     time = Timer.stop()
     print("Selectsort: " + str(time))
 
+    '''
     Timer.start()
     sortierverfahren.mergesort(liste)
     time = Timer.stop()
     print("Mergesort: " + str(time))
-
+    '''
     print("")
 
-laenge_liste = 10000
+laenge_liste = 25000
 
 print("----------------Aufsteigend-----------------")
 liste_auf_vorsortiert = rg.generiereListeAufVorsortiert(laenge_liste)
