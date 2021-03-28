@@ -11,7 +11,7 @@ class Waschmaschine():
         self.__Wasser = True
 
     def WaschmittelNachfuellen(self, menge):
-        if(menge<= 120 and menge>=0): #Zwischen 0 und 120?
+        if(menge<=120 and menge>=0): #Zwischen 0 und 120?
             if (self.__Waschmittelstand+menge<=120): #Passt noch in Maschine?
                 self.__Waschmittelstand+=menge
 
@@ -44,8 +44,8 @@ class Waschmaschine():
             if (self.__Schleudern):
                 print("Die Wäsche wurde geschleudert.")
 
-                self.__Waschmittelstand = 0
-                self.__Programm = 0
-                self.__Schleudern = False
+            self.__Waschmittelstand = 0
+            self.__Programm = 0
+            self.__Schleudern = False
         else:
             print("Sorry! Das geht nicht!")
