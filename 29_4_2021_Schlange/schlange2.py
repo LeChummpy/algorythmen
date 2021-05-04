@@ -11,6 +11,7 @@ class Schlange:
     def __init__(self):
       self.__laenge=0
       self.__erster=None
+      self.__letzter=None
 
     def IstLeer(self):
       # Vor.: keine
@@ -45,12 +46,15 @@ class Schlange:
       return erg
 
     def Hintenran(self, k):
+        n = self.__Knoten(k)
         x = self.erster
         while True:
             if (x.naechster==None):
                 break
             x = x.naechster
-        x.nachster = self.__Knoten(k)
+        x.nachster = n
+        self.__letzter = n
+        self.__laenge+=1
 
     def Hintenab(self):
         vorneI = self.__erster
@@ -61,15 +65,12 @@ class Schlange:
             if (hintenI==None):
                 break
         vorne.naechster=None
-
+        self.__letzter = vorne
+        self.__laenge-=1
 
     def Hinterteil(self):
-        x = self.erster
-        while True:
-            if (x.naechster==None):
-                break
-            x = x.naechster
-        return x
+        erg = self.__letzter.inhalt
+        returne erg
 
     def Laenge(self):
       # Vor.: keine
