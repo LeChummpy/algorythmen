@@ -2,7 +2,7 @@ from schlangenimpl import *
 from copy import copy
 
 def produkt(s):
-    copy = s
+    copy = copy(s)
     x = 1
     while not(copy.IstLeer()):
         x = x * copy.Kopf()
@@ -10,8 +10,8 @@ def produkt(s):
     return x
 
 def minimum(s):
-    copy = s
-    minimum = 1
+    copy = copy(s)
+    minimum = s.Kopf()
     while not(copy.IstLeer()):
         aktuellerWert = copy.Kopf()
         if (aktuellerWert<minimum):
@@ -20,8 +20,8 @@ def minimum(s):
     return minimum
 
 def Schlangenvergleich(s1, s2):
-    s1Copy = s1
-    s2Copy = s2
+    s1Copy = copy(s1)
+    s2Copy = copy(s2)
     if (s1Copy.Laenge()==s2Copy.Laenge()):
         while not(s1Copy.IstLeer()):
             werts1 = s1Copy.Kopf()
