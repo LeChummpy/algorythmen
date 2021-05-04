@@ -20,17 +20,19 @@ class Schlange:
          return True
       return False
 
-    def Vorneran(self,k):
+    def Hintenran(self,k):
       # Vor.: k ist vom Typ int.
       # Eff.: k ist am Ende der Schlange angehangen.
       n = self.__Knoten(k)
       if self.__laenge==0:
          self.__erster = n
+         self.__letzter = n
       else:
          knotenzeiger = self.__erster
          for i in range(self.__laenge-1):
             knotenzeiger = knotenzeiger.naechster
          knotenzeiger.naechster = n
+         self.__letzter = n
       self.__laenge=self.__laenge+1
 
     def Vorneab(self):
@@ -45,32 +47,18 @@ class Schlange:
       erg = self.__erster.inhalt
       return erg
 
-    def Hintenran(self, k):
-        n = self.__Knoten(k)
-        x = self.erster
-        while True:
-            if (x.naechster==None):
-                break
-            x = x.naechster
-        x.nachster = n
-        self.__letzter = n
-        self.__laenge+=1
-
     def Hintenab(self):
-        vorneI = self.__erster
-        hintenI = self.__erster.naechster
-        while True:
-            vorneI = hintenI
-            hintenI = vorneI.naechster
-            if (hintenI==None):
-                break
-        vorne.naechster=None
-        self.__letzter = vorne
+
+        x = self.__erster
+        for i in range(self.__laenge-2):
+            x = x.naechster
+        x.naechster = None
         self.__laenge-=1
+        self.__letzter=x
 
     def Hinterteil(self):
         erg = self.__letzter.inhalt
-        returne erg
+        return erg
 
     def Laenge(self):
       # Vor.: keine
@@ -86,3 +74,9 @@ class Schlange:
          erg = erg + " " + str(knotenzeiger.inhalt)
          knotenzeiger = knotenzeiger.naechster
       return ">>"+erg+"<<"
+
+s = Schlange()
+s.Hintenran(1)
+s.Hintenran(5)
+print(s)
+
