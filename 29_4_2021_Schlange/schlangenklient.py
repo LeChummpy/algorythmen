@@ -44,9 +44,9 @@ def umkehren(s):
         for j in range(aktuellerIndex-1):
             Kopie.Bedienen()
         erg.Einreihen(Kopie.Kopf())
-        
+
     return (erg)
-    
+
 s = Schlange()
 s.Einreihen(1)
 s.Einreihen(2)
